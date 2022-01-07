@@ -14,6 +14,7 @@ public class App {
             Player player = players.peek();
             Card playedCard = player.PlayCard(discardPile.peek());
             if (playedCard != null) {
+                System.out.println(player.name + " played " + playedCard);
                 playedCard.Use();
                 discardPile.add(playedCard);
             }
@@ -21,15 +22,20 @@ public class App {
                 System.out.println("Player " + player.name + " has won");
                 break;
             }
-            Draw();
+            //Draw();
             players.advance();
         }
     }
 
     public static void Reset() {
+        // should probably empty out the players, discordPile and drawPile fields
+
         // Add players
-        for (int i = 0; i < 4; i++) {
-            players.enqueue(new Player("Pik " + Integer.toString(i)));
+        for (int i = 0; i < 2; i++) {
+            players.enqueue(new Player("Tobias " + Integer.toString(i)));
+        }
+        for (int i = 0; i < 2; i++) {
+            players.enqueue(new Player("Niels " + Integer.toString(i)));
         }
 
         // Add every card, for every color, for every value

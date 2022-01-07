@@ -11,6 +11,12 @@ public class Card {
 		value.Run(this);
 	}
 
+
+
+	public String toString() { 
+		return "Card(" + color + "," + value + ")";
+	 } 
+
 	// Validate if card can be put on this card
 	public Boolean Validate(Card card) {
 		// These cards can be put on any other card
